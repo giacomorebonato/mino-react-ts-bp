@@ -3,6 +3,10 @@ This is my first Typescript boilerplate. I have started to use Typescript after 
 a a small project in Javascript and I didn't like Flow syntax.  
 So.. since we pass more time "maintaining code" instead of "writing new one" I thought that I wanted to give Typescript a try.  
 
+###Instructions
+1. npm install to install NPM dependencies  
+2. ```npm run install-typings``` to install the required Typescript typings  
+
 ###NodeJS and Express  
 ```npm run dev``` starts a nodemon server with ts-node... Which means that  
 1. You can use Typescript  
