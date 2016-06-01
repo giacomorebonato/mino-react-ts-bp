@@ -4,6 +4,7 @@
   "description": "",
   "main": "./server/server.ts",
   "scripts": {
+    "install-typings": "$(npm bin)/typings install",
     "build": "$(npm bin)/webpack --watch",
     "dev": "$(npm bin)/nodemon --exec \"$(npm bin)/ts-node\" ./server/server.ts",
     "start": "$(npm bin)/ts-node ./server/server.ts",
@@ -27,6 +28,8 @@
     "react-dom": "^15.1.0",
     "rimraf": "^2.5.2",
     "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
