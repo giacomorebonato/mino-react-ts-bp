@@ -1,0 +1,34 @@
+{
+  "name": "mino-ts-bp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/server.ts",
+  "scripts": {
+    "build": "$(npm bin)/webpack --watch",
+    "dev": "$(npm bin)/nodemon --exec \"$(npm bin)/ts-node\" ./server/server.ts",
+    "start": "$(npm bin)/ts-node ./server/server.ts",
+    "test": "tsc -p tsconfig.test.json && ava \"**/*test.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "nunjucks": "^2.4.2",
+    "ts-node": "^0.7.3"
+  },
+  "devDependencies": {
+    "ava": "^0.15.1",
+    "enzyme": "^2.3.0",
+    "jsdom": "^9.2.1",
+    "nodemon": "^1.9.2",
+    "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "rimraf": "^2.5.2",
+    "ts-loader": "^0.8.2",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  }
+}
