@@ -8,7 +8,7 @@
     "build": "$(npm bin)/webpack --watch",
     "dev": "$(npm bin)/nodemon --exec \"$(npm bin)/ts-node\" ./server/server.ts",
     "start": "$(npm bin)/ts-node ./server/server.ts",
-    "test": "tsc -p tsconfig.test.json && ava \"**/*test.js\""
+    "test": "$(npm bin)/tsc -p tsconfig.test.json && ava \"**/*test.js\""
   },
   "author": "",
   "license": "ISC",
