@@ -17,4 +17,4 @@ so you can replace it with whatever you want.
 Webpack is configure for livereload (HMR), but I didn't test it.  
 
 ##Tests  
-I have chosen Ava since it comes with Typescript typings. I made a different tsconfig.test.json and it looks for all the ```___tests__``` subfolders containing tests.
+I have chosen Ava since it comes with Typescript typings. I made a different tsconfig.test.json and it looks for all the ```__tests__``` subfolders containing tests.
