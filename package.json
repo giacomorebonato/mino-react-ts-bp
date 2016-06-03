@@ -6,9 +6,9 @@
   "scripts": {
     "install-typings": "$(npm bin)/typings install",
     "build": "$(npm bin)/webpack --watch",
-    "dev": "$(npm bin)/nodemon --exec \"$(npm bin)/ts-node\" ./server/server.ts",
+    "dev": "$(npm bin)/nodemon --exec \"$(npm bin)/ts-node\" ./server/server.ts || npm run build",
     "start": "$(npm bin)/ts-node ./server/server.ts",
-    "test": "$(npm bin)/tsc -p tsconfig.test.json && ava \"**/*test.js\""
+    "test": "$(npm bin)/tsc -p tsconfig.test.json && ava \"**/*test.js\" && $(npm bin)/rimraf ./dist_test"
   },
   "author": "",
   "license": "ISC",
