@@ -18,11 +18,17 @@
     "nunjucks": "^2.4.2",
     "ts-node": "^0.7.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:giacomorebonato/mino-react-ts-bp.git"
+  },
   "devDependencies": {
     "ava": "^0.15.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.3.0",
     "jsdom": "^9.2.1",
+    "mobx": "^2.2.2",
+    "mobx-react": "^3.3.0",
     "nodemon": "^1.9.2",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
