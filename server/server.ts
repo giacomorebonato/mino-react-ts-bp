@@ -4,12 +4,11 @@ import nunjucks = require('nunjucks')
 import { NODE_ENV, PORT } from './config'
 import path = require('path')
 import routes from './routes'
-import webpack = require('webpack')
-
-const webpackConfig = require('../webpack.config')
 const app = express()
 
 if (NODE_ENV === 'development') {
+  let webpack = require('webpack')
+  const webpackConfig = require('../webpack.config')
   const compiler = webpack(webpackConfig)
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true, publicPath: webpackConfig.output.publicPath
