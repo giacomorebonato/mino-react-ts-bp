@@ -16,7 +16,8 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "nunjucks": "^2.4.2",
-    "ts-node": "^0.7.3"
+    "ts-node": "^0.7.3",
+    "typescript": "^1.8.10"
   },
   "repository": {
     "type": "git",
