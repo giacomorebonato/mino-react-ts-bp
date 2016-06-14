@@ -48,11 +48,11 @@ if (NODE_ENV === 'development') {
   conf.plugins.push(new webpack.optimize.OccurrenceOrderPlugin())
   conf.plugins.push(new webpack.HotModuleReplacementPlugin())
   conf.plugins.push(new webpack.NoErrorsPlugin())
-  conf.moudle.loaders.push(
+  conf.module.loaders.push(
     { test: /\.tsx?$/, loaders: ['react-hot', 'awesome-typescript'] }
   )
 } else {
-  conf.moudle.loaders.push(
+  conf.module.loaders.push(
     { test: /\.tsx?$/, loaders: ['awesome-typescript'] }
   )
 }
