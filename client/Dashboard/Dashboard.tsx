@@ -1,6 +1,6 @@
 import React = require('react')
-var CSSModules = require('react-css-modules')
-var styles = require('./dashboard.css')
+const CSSModules = require('react-css-modules')
+const styles = require('./dashboard.css')
 
 export class Dashboard extends React.Component<{}, {}> {
 	render () {

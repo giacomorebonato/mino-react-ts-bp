@@ -1,6 +1,6 @@
 import test from 'ava'
 import enzyme = require('enzyme')
-import React = require('react')
+import * as React from 'react'
 import { Root } from '../Root'
 import './setup'
 
