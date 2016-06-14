@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var NODE_ENV = process.env.NODE_ENV || 'development'
+var globalCSS = path.join(__dirname, '/client/styles/global.css')
 
 var conf = {
   entry: {
@@ -18,19 +19,25 @@ var conf = {
     loaders: [
       { test: /\.png$/, loader: 'url-loader?limit=100000' },
       { test: /\.jpg$/, loader: 'file-loader' },
-      { test: /\.tsx?$/, loader: 'ts' },
-      { test: path.join(__dirname, '/client/global.css'), loader: "style-loader!css-loader" },
+      { test: globalCSS, loader: "style-loader!css-loader" },
       {
         test: /\.css$/,
-        exclude: path.join(__dirname, '/client/global.css'),
+        exclude: globalCSS,
         loaders: [
-            'style?sourceMap',
-            'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
         ]
       }
     ]
   },
-	plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(NODE_ENV)
+      },
+      'NODE_ENV': JSON.stringify(NODE_ENV)
+    })
+  ]
 }
 
 if (NODE_ENV === 'development') {
@@ -38,11 +45,16 @@ if (NODE_ENV === 'development') {
   var mwClient = 'webpack-hot-middleware/client'
 
   conf.entry['front-end'].splice(1, 0, onlyServer, mwClient)
-
   conf.plugins.push(new webpack.optimize.OccurrenceOrderPlugin())
   conf.plugins.push(new webpack.HotModuleReplacementPlugin())
   conf.plugins.push(new webpack.NoErrorsPlugin())
-  conf.module.loaders.push({ test: /\.(js|jsx)$/, exclude: /(node_modules|server)/, loaders: ['react-hot', 'ts'] })
+  conf.moudle.loaders.push(
+    { test: /\.tsx?$/, loaders: ['react-hot', 'awesome-typescript'] }
+  )
+} else {
+  conf.moudle.loaders.push(
+    { test: /\.tsx?$/, loaders: ['awesome-typescript'] }
+  )
 }
 
 module.exports = conf
