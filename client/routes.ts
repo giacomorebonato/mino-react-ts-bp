@@ -1,4 +1,3 @@
-import ReactRouter = require('react-router')
 import Root from './Root'
 import Dashboard from './Dashboard'
 

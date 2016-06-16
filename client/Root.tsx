@@ -1,4 +1,3 @@
-import ReactDOM = require('react-dom')
 import React = require('react')
 
 interface IProps {

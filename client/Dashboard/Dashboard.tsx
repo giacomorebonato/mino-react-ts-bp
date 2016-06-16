@@ -1,5 +1,5 @@
 import React = require('react')
-const CSSModules = require('react-css-modules')
+const CSS = require('react-css-modules')
 const styles = require('./dashboard.css')
 
 export class Dashboard extends React.Component<{}, {}> {
@@ -12,4 +12,4 @@ export class Dashboard extends React.Component<{}, {}> {
 	}
 }
 
-export default CSSModules(Dashboard, styles)
+export default CSS(Dashboard, styles)
