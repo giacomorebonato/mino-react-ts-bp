@@ -8,10 +8,7 @@ So.. since we pass more time "maintaining code" instead of "writing new one" I t
 2. ```npm run install-typings``` to install the required Typescript typings  
 
 ###NodeJS and Express  
-```npm run dev``` starts a nodemon server with ts-node... Which means that  
-1. You can use Typescript  
-2. The server restart automatically on changes  
-
+```npm run dev``` server with ts-node... Which means that you can write server code with Typescript  
 So again: one language everywhere.
 
 ##React  
