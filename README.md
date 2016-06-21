@@ -8,11 +8,8 @@ So.. since we pass more time "maintaining code" instead of "writing new one" I t
 2. ```npm run install-typings``` to install the required Typescript typings  
 
 ###NodeJS and Express  
-```npm run dev``` starts a nodemon server with ts-node... Which means that  
-- You can use Typescript  
-- The server restart automatically on changes  
-
-So again: one language everywhere.
+```npm run dev``` starts an [ExpressJS](http://expressjs.com/) server with ts-node... Which means that you can use 
+one language everywhere.
 
 ###Go Reactive with Mobx  
 I liked the "Redux lessons", but I think that the approach is too much verbose and can become overwhelming in big projects.  
