@@ -1,7 +1,8 @@
-import mobx = require('mobx')
+import { observable, action } from 'mobx'
 
-let store = mobx.observable({
+class SampleStore {
+	@observable
 	title: 'Welcome to my BP!'
-})
+}
 
-export default store
+export default new SampleStore()
