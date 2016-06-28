@@ -2,5 +2,7 @@
 {
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"files.trimTrailingWhitespace": true
 }
