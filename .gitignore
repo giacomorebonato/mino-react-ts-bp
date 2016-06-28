@@ -1,5 +1,5 @@
 node_modules
 dist_test
 ./npm-debug.log
-typings/globals
-typings/modules
+typings
+public/**hot-update**

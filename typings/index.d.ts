@@ -6,6 +6,7 @@
 /// <reference path="globals/jsdom/index.d.ts" />
 /// <reference path="globals/node/index.d.ts" />
 /// <reference path="globals/nunjucks/index.d.ts" />
+/// <reference path="globals/object-assign/index.d.ts" />
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-router/history/index.d.ts" />
 /// <reference path="globals/react-router/index.d.ts" />
