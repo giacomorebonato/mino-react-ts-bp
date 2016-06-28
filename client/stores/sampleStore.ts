@@ -11,12 +11,17 @@ class SampleStore {
 			}
 		}
 	}
-	@observable
-	title: 'Welcome to my BP!'
 
-	@action setData (data) {
+	@observable title = 'Welcome to my BP!'
+
+	@action('CHANGE_TITLE')
+	setData (data) {
 		objectAssign(this, data)
 	}
+
+	changeTitle = action((title: string) => {
+		this.title = title
+	})
 }
 
 export default SampleStore
