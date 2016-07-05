@@ -3,7 +3,7 @@ import React = require('react')
 import DevTools from 'mobx-react-devtools'
 
 interface IProps {
-	children: any
+	children?: any
 }
 
 export default class Root extends React.Component<IProps, any> {
@@ -13,7 +13,7 @@ export default class Root extends React.Component<IProps, any> {
 				{this.props.children}
 				{
 					(() => {
-						if (NODE_ENV === 'development') {
+						if (typeof NODE_ENV !== 'undefined' && NODE_ENV === 'development') {
 							return <DevTools />
 						}
 					})()
