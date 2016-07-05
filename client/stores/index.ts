@@ -1,3 +1,7 @@
 import SampleStore from './SampleStore'
 
-export const sampleStore = new SampleStore()
+let stores = {
+	sampleStore: new SampleStore()
+}
+
+export default stores

@@ -2,26 +2,33 @@ import { observable, action } from 'mobx'
 import objectAssign = require('object-assign')
 
 class SampleStore {
-	constructor () {
-		if (window['data']) {
-			let data = window['data'] as any
+	constructor (data) {
+		if (data) {
+			this.setData(data)
+			return
+		}
 
-			if (data.sampleStore) {
-				this.setData(data.sampleStore)
+		if (window['data']) {
+			let wData = window['data'] as any
+
+			if (wData.sampleStore) {
+				this.setData(wData.sampleStore)
 			}
 		}
 	}
 
-	@observable title = 'Welcome to my BP!'
+	@observable
+	title = 'Welcome to my BP!'
 
-	@action('CHANGE_TITLE')
+	@action('SET_DATA')
 	setData (data) {
 		objectAssign(this, data)
 	}
 
-	changeTitle = action((title: string) => {
+	@action('CHANGE_TITLE')
+	changeTitle (title: string) {
 		this.title = title
-	})
+	}
 }
 
 export default SampleStore
