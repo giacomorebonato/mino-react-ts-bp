@@ -11,7 +11,8 @@ if (NODE_ENV === 'development') {
 	const webpackConfig = require('../webpack.config')
 	const compiler = webpack(webpackConfig)
 	app.use(require('webpack-dev-middleware')(compiler, {
-		noInfo: true, publicPath: webpackConfig.output.publicPath
+		noInfo: true,
+		publicPath: webpackConfig.output.publicPath
 	}))
 	app.use(require('webpack-hot-middleware')(compiler))
 }
