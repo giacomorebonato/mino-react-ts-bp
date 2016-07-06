@@ -1,13 +1,16 @@
 import ReactDOM = require('react-dom')
 import * as React from 'react'
-import { browserHistory, Router } from 'react-router'
+import { browserHistory, Router, RouterContext } from 'react-router'
 import routes from './routes'
 import './styles/global.css'
 import stores from  './stores'
+import ContextProvider from './components/ContextProvider'
 
-function createElement (Component, props) {
+function createElement (props) {
 	return (
-		<Component {...props} stores={stores} />
+		<ContextProvider stores={stores}>
+			<RouterContext {...props} />
+		</ContextProvider>
 	)
 }
 
@@ -15,7 +18,7 @@ ReactDOM.render(
 	<Router
 		history={browserHistory}
 		routes={routes}
-		createElement={createElement}
+		render={createElement}
 	/>,
 	document.getElementById('app')
 )

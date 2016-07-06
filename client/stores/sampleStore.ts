@@ -2,7 +2,7 @@ import { observable, action } from 'mobx'
 import objectAssign = require('object-assign')
 
 class SampleStore {
-	constructor (data) {
+	constructor (data?) {
 		if (data) {
 			this.setData(data)
 			return

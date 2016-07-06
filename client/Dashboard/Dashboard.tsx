@@ -7,8 +7,15 @@ const styles = require('./dashboard.css')
 
 @observer
 class Dashboard extends React.Component<IContainerProps, any> {
+	context: {
+		stores: typeof context
+	}
+	static contextTypes = {
+		stores: React.PropTypes.object
+	}
+
 	render () {
-		const stores = this.props.stores as typeof context
+		const { stores } = this.context
 		const { sampleStore } = stores
 		const { title } = sampleStore
 
