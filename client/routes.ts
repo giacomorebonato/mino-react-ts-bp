@@ -1,5 +1,5 @@
-import Root from './Root'
-import Dashboard from './Dashboard'
+import Root from './views/Root'
+import Dashboard from './views/Dashboard'
 
 export default {
 	path: '/',

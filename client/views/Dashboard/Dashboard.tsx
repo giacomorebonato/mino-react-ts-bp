@@ -1,7 +1,7 @@
 import React = require('react')
 import { observer } from 'mobx-react'
-import context from '../stores'
-import IContainerProps from '../interfaces/IContainerProps'
+import context from '../../stores'
+import IContainerProps from '../../interfaces/IContainerProps'
 const CSS = require('react-css-modules')
 const styles = require('./dashboard.css')
 
