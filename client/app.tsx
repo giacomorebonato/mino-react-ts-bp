@@ -4,7 +4,16 @@ import { browserHistory, Router, RouterContext } from 'react-router'
 import routes from './routes'
 import './styles/global.css'
 import stores from  './stores'
-import ContextProvider from './components/ContextProvider'
+import ContextProvider from './lib/ContextProvider'
+import firebase = require('firebase')
+
+let config = {
+	apiKey: "AIzaSyC7df3s4ixJwraA11baGRwBTbgdqFgEoco",
+	authDomain: "to-do-list-3210f.firebaseapp.com",
+	databaseURL: "https://to-do-list-3210f.firebaseio.com",
+	storageBucket: ""
+};
+firebase.initializeApp(config)
 
 function createElement (props) {
 	return (

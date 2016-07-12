@@ -1,0 +1,31 @@
+.overlay {
+  position: fixed;
+  top: 4rem	;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(0,0,0,0.5);	
+}
+
+:global .overlay a {
+	font-size: 0.9em;
+}
+
+:global .overlay-appear {
+  opacity: 0.1;
+}
+
+:global .overlay-appear.overlay-appear-active {
+  transition: opacity 500ms ease-in;
+	opacity: 1;
+}
+
+:global .overlay-leave {
+  opacity: 1;
+}
+
+:global .overlay-leave.overlay-leave-active {
+  transition: opacity 400ms ease-in;
+	opacity: 0.1;
+}

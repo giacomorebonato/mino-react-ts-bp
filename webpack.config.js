@@ -44,6 +44,7 @@ if (NODE_ENV === 'development') {
   var onlyServer = 'webpack/hot/only-dev-server'
   var mwClient = 'webpack-hot-middleware/client'
 
+	conf.devtool = 'source-map'
   conf.entry['front-end'].splice(1, 0, onlyServer, mwClient)
   conf.plugins.push(new webpack.optimize.OccurrenceOrderPlugin())
   conf.plugins.push(new webpack.HotModuleReplacementPlugin())
@@ -52,6 +53,7 @@ if (NODE_ENV === 'development') {
     { test: /\.tsx?$/, loaders: ['react-hot', 'awesome-typescript'] }
   )
 } else {
+	conf.plugins.push(new webpack.optimize.UglifyJsPlugin())
   conf.module.loaders.push(
     { test: /\.tsx?$/, loaders: ['awesome-typescript'] }
   )

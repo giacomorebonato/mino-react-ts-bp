@@ -28,7 +28,7 @@ Then the component becomes "observer" only when the @observer annotation from mo
 ReactJS is my framework of choice for the front-end but I did a really small example
 so you can replace it with whatever you want.
 ```npm run build``` to create the bundle.
-Webpack is configure for livereload (HMR), but I didn't test it.
+Webpack is configure for livereload (HMR), but sometimes it breaks.
 
 ###File structure  
 I like the file structure [proposed here by Ryan Florence](https://gist.github.com/ryanflorence/110d4538bf98694538de) although this is not a Redux application.
@@ -37,5 +37,10 @@ I like the file structure [proposed here by Ryan Florence](https://gist.github.c
 I have chosen Ava since it comes with Typescript typings. I made a different tsconfig.test.json and it looks for all the ```__tests__``` subfolders containing tests.
 Type ```npm run test``` to launch the only running test in the project.
 
-##To do  
+##Styles
+
+###Icons  
+[Material design icons](https://design.google.com/icons/) referenced by CDN in the header.
+
+##To do list  
 I want to make this a boilerplate for working with Firebase.

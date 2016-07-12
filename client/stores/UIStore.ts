@@ -1,31 +1,33 @@
 import { observable, action } from 'mobx'
 import objectAssign = require('object-assign')
 
-class SampleStore {
+class UIStore {
 	constructor (data?) {
 		if (data) {
 			this.setData(data)
-		} else if (window['data']) {
+		}
+
+		if (window['data']) {
 			let wData = window['data'] as any
 
 			if (wData.sampleStore) {
-				this.setData(wData.sampleStore)
+				this.setData(wData.uiStore)
 			}
 		}
 	}
 
 	@observable
-	title = 'Welcome to my BP!'
+	isSideMenuVisible = false
 
-	@action('SET_DATA')
+	@action('SET_UI_DATA')
 	setData (data) {
 		objectAssign(this, data)
 	}
 
-	@action('CHANGE_TITLE')
-	changeTitle (title: string) {
-		this.title = title
+	@action('TOGGLE_SIDE_MENU')
+	toggleSideMenu () {
+		this.isSideMenuVisible = !this.isSideMenuVisible
 	}
 }
 
-export default SampleStore
+export default UIStore
