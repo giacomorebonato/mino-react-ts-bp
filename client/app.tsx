@@ -1,11 +1,12 @@
 import { render } from 'react-dom'
 import * as React from 'react'
-import { browserHistory, Router, RouterContext } from 'react-router'
 import routes from './routes'
 import './styles/global.scss'
 import ContextProvider from './lib/ContextProvider'
 import { getStores } from  './stores'
-
+const browserHistory = require('react-router/lib/browserHistory')
+const Router = require('react-router/lib/Router')
+const RouterContext = require('react-router/lib/RouterContext')
 const stores = getStores(window['data'] || {})
 
 function createElement (props) {

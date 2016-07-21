@@ -1,13 +1,12 @@
 import React = require('react')
-import { Container } from 'rebass'
 import SignupForm from './SignupForm'
 
 class Signup extends React.Component<any, any> {
 	render () {
 		return (
-			<Container>
+			<div>
 				<SignupForm />
-			</Container>
+			</div>
 		)
 	}
 }

@@ -5,8 +5,8 @@
   "main": "./server/server.ts",
   "scripts": {
     "postinstall": "$(npm bin)/typings install",
-    "build": "$(npm bin)/webpack --watch",
-    "dev": "$(npm bin)/ts-node ./server/server.ts || npm run build",
+    "build": "NODE_ENV=production $(npm bin)/webpack -p",
+    "dev": "$(npm bin)/ts-node ./server/server.ts || $(npm bin)/webpack -d --watch",
     "lint": "$(npm bin)/tslint -c tslint.json client/**/**.ts client/**/**.tsx server/**/**.ts",
     "start": "$(npm bin)/ts-node ./server/server.ts",
     "test": "NODE_ENV=test $(npm bin)/tsc -p tsconfig.test.json && $(npm bin)/ava \"**/*test.js\" && $(npm bin)/rimraf ./dist_test"
@@ -19,7 +19,7 @@
     "firebase": "^3.2.0",
     "nunjucks": "^2.4.2",
     "object-assign": "^4.1.0",
-    "ts-node": "^1.0.0",
+    "ts-node": "^1.1.0",
     "typescript": "^2.1.0-dev.20160718"
   },
   "repository": {
@@ -39,7 +39,6 @@
     "mobx": "^2.4.0",
     "mobx-react": "^3.5.1",
     "mobx-react-devtools": "^4.2.3",
-    "muicss": "^0.6.7",
     "node-sass": "^3.8.0",
     "normalize.css": "^4.2.0",
     "react": "^15.2.1",

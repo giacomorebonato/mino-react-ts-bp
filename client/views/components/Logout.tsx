@@ -1,7 +1,7 @@
 import React = require('react')
 import { IStores } from '../../stores'
 import { connect } from '../../lib/ContextProvider'
-import { browserHistory } from 'react-router'
+const browserHistory = require('react-router/lib/browserHistory')
 
 class Logout extends React.Component<{stores: IStores}, any> {
 	componentDidMount () {

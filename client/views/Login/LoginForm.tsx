@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { IStores } from '../../stores'
-import { Link } from 'react-router'
 import { connect } from '../../lib/ContextProvider'
-const { Button, Input } = require('react-toolbox')
+const Link = require('react-router/lib/Link')
+const { Button } = require('react-toolbox/lib/button')
+const { Input } = require('react-toolbox/lib/input')
 
 class LoginForm extends React.Component<{stores: IStores}, any> {
 	render () {

@@ -1,8 +1,9 @@
 import React = require('react')
 import { IStores } from '../../stores'
-import { Link } from 'react-router'
 import { connect } from '../../lib/ContextProvider'
-const { Button, Input } = require('react-toolbox')
+const { Button } = require('react-toolbox/lib/button')
+const { Input } = require('react-toolbox/lib/input')
+const Link = require('react-router/lib/Link')
 
 class SignupForm extends React.Component<{stores: IStores}, any> {
 	render () {

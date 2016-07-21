@@ -3,7 +3,6 @@ import { IStores } from '../../stores'
 import { connect } from '../../lib/ContextProvider'
 import { observer } from 'mobx-react'
 
-const Container = require('muicss/lib/react/container')
 const CSS = require('react-css-modules')
 const styles = require('./dashboard.css')
 
@@ -14,7 +13,7 @@ class Dashboard extends React.Component<{stores: IStores}, any> {
 		const { title } = siteStore
 
 		return (
-			<Container fluid>
+			<div>
 				<h3>{title}</h3>
 				<div>
 					<label>Change title</label>
@@ -26,7 +25,7 @@ class Dashboard extends React.Component<{stores: IStores}, any> {
 						value={title}
 					/>
 				</div>
-			</Container>
+			</div>
 		)
 	}
 }

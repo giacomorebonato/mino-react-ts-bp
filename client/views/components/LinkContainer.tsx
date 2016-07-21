@@ -1,7 +1,6 @@
 import React = require('react')
 import { connect } from '../../lib/ContextProvider'
-import { History, Location } from '~react-router~history/history'
-const { Link } = require('react-toolbox')
+const { Link } = require('react-toolbox/lib/link')
 
 
 class LinkContainer extends React.Component<ILinkContainerProps, any> {
@@ -28,7 +27,7 @@ interface ILinkContainerProps {
 	children?: Node
 	location?: Location
 	to: string,
-	router?: History
+	router?: any
 }
 
 export default connect<ILinkContainerProps>(LinkContainer)

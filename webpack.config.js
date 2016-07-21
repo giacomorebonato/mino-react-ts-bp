@@ -41,16 +41,6 @@ var conf = {
     ]
   },
   plugins: [
-		new CopyWebpackPlugin([
-			{ 
-				from: path.join(__dirname, './node_modules/loading-svg/loading-spin.svg'), 
-				to: path.join(__dirname, './public/svg/loading-spin.svg') 
-			},
-			{ 
-				from: path.join(__dirname, './client/styles/palette.css'), 
-				to: path.join(__dirname, './public/css/palette.css') 
-			},
-		]),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(NODE_ENV)
@@ -58,6 +48,8 @@ var conf = {
     })
   ]
 }
+
+
 
 if (NODE_ENV === 'development') {
   var onlyServer = 'webpack/hot/only-dev-server'
@@ -72,7 +64,14 @@ if (NODE_ENV === 'development') {
     { test: /\.tsx?$/, loaders: ['react-hot', 'awesome-typescript'] }
   )
 } else {
-	conf.plugins.push(new webpack.optimize.UglifyJsPlugin())
+	conf.plugins.push(new webpack.optimize.UglifyJsPlugin({
+		compress: {
+			warnings: false,
+			screw_ie8: true
+		},
+		comments: false,
+		sourceMap: false		
+	}))
   conf.module.loaders.push(
     { test: /\.tsx?$/, loaders: ['awesome-typescript'] }
   )

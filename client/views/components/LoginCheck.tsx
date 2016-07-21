@@ -1,6 +1,7 @@
 import React = require('react')
-import { browserHistory } from 'react-router'
 import { IStores } from '../../stores'
+
+const browserHistory = require('react-router/lib/browserHistory')
 
 function LoginCheck<P> (Component): React.ComponentClass<any> {
 	class ComposedComponent extends React.Component<{stores: IStores}, any> {

@@ -1,7 +1,6 @@
 import React = require('react')
 import { observer } from 'mobx-react'
 import { IStores } from '../stores'
-import { History, Location } from '~react-router~history/history'
 
 class ContextProvider extends React.Component<IContextProviderProps, any> {
 	static childContextTypes = {

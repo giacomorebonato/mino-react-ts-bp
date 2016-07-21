@@ -1,5 +1,4 @@
 import React = require('react')
-const { Button, Input } = require('rebass')
 
 class ProfileForm extends React.Component<any, any> {
 	render () {
