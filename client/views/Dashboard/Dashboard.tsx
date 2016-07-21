@@ -1,45 +1,27 @@
 import React = require('react')
+import { IStores } from '../../stores'
+import { connect } from '../../lib/ContextProvider'
 import { observer } from 'mobx-react'
-import context from '../../stores'
-import { IRouterProps } from 'react-router'
-import { Container, Title } from '../components'
 
+const Container = require('muicss/lib/react/container')
 const CSS = require('react-css-modules')
 const styles = require('./dashboard.css')
 
-@observer
-class Dashboard extends React.Component<IRouterProps, any> {
-	context: {
-		stores: typeof context
-	}
-	static contextTypes = {
-		stores: React.PropTypes.object
-	}
-	constructor (props, ctx) {
-		super(props, ctx)
-
-		const { uiStore } = ctx.stores
-
-		if (uiStore.isSideMenuVisible) {
-			uiStore.toggleSideMenu()
-		}
-	}
-
+class Dashboard extends React.Component<{stores: IStores}, any> {
 	render () {
-		const { stores } = this.context
-		const { sampleStore } = stores
-		const { title } = sampleStore
+		const { stores } = this.props
+		const { siteStore } = stores
+		const { title } = siteStore
 
 		return (
-			<Container>
-				<Title>{title}</Title>
+			<Container fluid>
+				<h3>{title}</h3>
 				<div>
 					<label>Change title</label>
 					<input
 						type='text'
-						onChange={(e: Event) => {
-							let input = e.target as HTMLInputElement
-							sampleStore.changeTitle(input.value)
+						onChange={(e: { target: HTMLInputElement }) => {
+							siteStore.setTitle(e.target.value)
 						}}
 						value={title}
 					/>
@@ -49,4 +31,4 @@ class Dashboard extends React.Component<IRouterProps, any> {
 	}
 }
 
-export default CSS(Dashboard, styles)
+export default observer(connect(CSS(Dashboard, styles)))

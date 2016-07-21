@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 import objectAssign = require('object-assign')
-import Firebase = require('firebase')
-import { INotificationStore, NotificationType } from './NotificationsStore'
+import firebase from '../firebase'
+import { INotificationStore } from './NotificationsStore'
 
 class AuthStore {
 	constructor (notificationsStore: INotificationStore, data?: any) {
@@ -9,19 +9,21 @@ class AuthStore {
 
 		if (data) {
 			this.setData(data)
-		} else if (window['data']) {
-			let wData = window['data'] as any
-
-			if (wData.sampleStore) {
-				this.setData(wData.authStore)
-			}
 		}
+
+		firebase.auth().onAuthStateChanged((user) => {
+			if (user) {
+				setTimeout(() => {
+					this.setUser(user)
+				}, 1)
+			}
+		})
 	}
 
 	notificationsStore: INotificationStore
 
 	@observable
-	user: Firebase.User
+	user: firebase.User
 
 	@observable
 	signupForm: ISignupForm = {
@@ -61,29 +63,34 @@ class AuthStore {
 	}
 
 	@action('SET_USER')
-	setUser (user: Firebase.User) {
+	setUser (user: firebase.User) {
 		this.user = user
 	}
 
+	logout () {
+		this.setUser(null)
+		const auth = firebase.auth()
+		auth.signOut()
+	}
+
 	signup (email: string, password: string) {
-		const auth = Firebase.auth()
+		const auth = firebase.auth()
 
 		auth.createUserWithEmailAndPassword(email, password).then((user) => {
-			this.notificationsStore.createNotification('User registered')
+			this.notificationsStore.createNotification('User registered', 'SUCCESS')
 		})
 		.catch((err: Error) => {
-			this.notificationsStore.createNotification(err.message, NotificationType.WARNING)
+			this.notificationsStore.createNotification(err.message, 'WARNING')
 		})
 	}
 
 	signin (email: string, password: string) {
-		const auth = Firebase.auth()
+		const auth = firebase.auth()
 		auth.signInWithEmailAndPassword(email, password).then((user) => {
-			this.setUser(user)
-			this.notificationsStore.createNotification('Login successful')
+			this.notificationsStore.createNotification('Login successful', 'SUCCESS')
 		})
 		.catch((err) => {
-			this.notificationsStore.createNotification('Credentials error', NotificationType.WARNING)
+			this.notificationsStore.createNotification('Credentials error', 'WARNING')
 		})
 	}
 }

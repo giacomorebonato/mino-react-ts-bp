@@ -1,15 +1,24 @@
 import AuthStore from './AuthStore'
 import NotificationsStore from './NotificationsStore'
-import SampleStore from './SampleStore'
+import SiteStore from './SiteStore'
 import UIStore from './UIStore'
 
-const notificationsStore = new NotificationsStore()
+export function getStores (data): IStores {
+	const notificationsStore = new NotificationsStore()
 
-const stores = {
-	notificationsStore,
-	authStore: new AuthStore(notificationsStore),
-	sampleStore: new SampleStore(),
-	uiStore: new UIStore()
+	const stores = {
+		notificationsStore,
+		authStore: new AuthStore(notificationsStore, data['authStore']),
+		uiStore: new UIStore(),
+		siteStore: new SiteStore(data['siteStore'])
+	}
+
+	return stores
 }
 
-export default stores
+export interface IStores {
+	notificationsStore: NotificationsStore
+	authStore: AuthStore
+	uiStore: UIStore
+	siteStore: SiteStore
+}

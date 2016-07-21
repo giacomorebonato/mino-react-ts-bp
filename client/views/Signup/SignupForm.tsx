@@ -1,21 +1,12 @@
 import React = require('react')
-import { observer } from 'mobx-react'
-import { Button, FormHelpers } from '../components'
-import context from '../../stores'
+import { IStores } from '../../stores'
+import { Link } from 'react-router'
+import { connect } from '../../lib/ContextProvider'
+const { Button, Input } = require('react-toolbox')
 
-const { FormGroup, Input, Label } = FormHelpers
-
-@observer
-class SignupForm extends React.Component<any, any> {
-	context: {
-		stores: typeof context
-	}
-	static contextTypes = {
-		stores: React.PropTypes.object
-	}
-
+class SignupForm extends React.Component<{stores: IStores}, any> {
 	render () {
-		let { authStore } = this.context.stores
+		let { authStore } = this.props.stores
 		let { signupForm } = authStore
 		let { email, password } = signupForm
 
@@ -27,34 +18,32 @@ class SignupForm extends React.Component<any, any> {
 					authStore.signup(email, password)
 				}}
 			>
-				<FormGroup>
-					<Label>Email</Label>
-					<Input
-						onChange={(e: Event) => {
-							const input = e.target as HTMLInputElement
-							authStore.changeSignupEmail(input.value)
-						}}
-						type='email'
-						value={email}
-					/>
-				</FormGroup>
-				<FormGroup>
-					<Label>Password</Label>
-					<Input
-						type='password'
-						onChange={(e: Event) => {
-							const input = e.target as HTMLInputElement
-							authStore.changeSignupPassword(input.value)
-						}}
-						value={password}
-					/>
-				</FormGroup>
-				<div className='flex justify-end'>
-					<Button>Submit</Button>
-				</div>
+				<legend>Signup</legend>
+				<Input
+					label='Email'
+					name='email'
+					onChange={(value: string) => {
+						authStore.changeSignupEmail(value)
+					}}
+					type='email'
+					value={email}
+				/>
+				<Input
+					name='password'
+					label='Password'
+					type='password'
+					onChange={(value: string) => {
+						authStore.changeSignupPassword(value)
+					}}
+					value={password}
+				/>
+				<Button raised={true} primary={true}>Submit</Button>
+				<Link to='/login'>
+					<Button>Login</Button>
+				</Link>
 			</form>
 		)
 	}
 }
 
-export default SignupForm
+export default connect(SignupForm)

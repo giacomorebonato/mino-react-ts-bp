@@ -3,7 +3,6 @@ import express = require('express')
 import nunjucks = require('nunjucks')
 import { NODE_ENV, PORT } from './config'
 import path = require('path')
-import routes from './routes'
 const app = express()
 
 if (NODE_ENV === 'development') {
@@ -24,8 +23,13 @@ nunjucks.configure(path.join(__dirname, '../views'), {
 	autoescape: true,
 	express: app
 })
-routes(app)
+
+app.get('*', (req, res) => {
+	res.render('index.html', {
+		data: JSON.stringify({})
+	})
+})
 
 let server = app.listen(PORT, () => {
-	console.log(`server listening on port ${server.address().port}`)
+	console.log(`🚀  server listening on port ${server.address().port}`)
 })

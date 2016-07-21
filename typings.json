@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "firebase": "registry:npm/firebase#3.0.5+20160705215914",
-    "react-router": "registry:npm/react-router#2.4.0+20160628165748"
+    "react-router": "registry:npm/react-router#2.4.0+20160718214432"
   },
   "globalDependencies": {
     "body-parser": "registry:dt/body-parser#0.0.0+20160619023215",
@@ -9,7 +9,7 @@
     "enzyme": "registry:dt/enzyme#2.3.0+20160525083955",
     "express": "registry:dt/express#4.0.0+20160317120654",
     "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160625155614",
-    "jquery": "registry:dt/jquery#1.10.0+20160628074423",
+    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
     "jsdom": "registry:dt/jsdom#2.0.0+20160316155526",
     "mime": "registry:dt/mime#0.0.0+20160316155526",
     "node": "registry:dt/node#6.0.0+20160621231320",
@@ -19,6 +19,7 @@
     "react-addons-css-transition-group": "registry:dt/react-addons-css-transition-group#0.14.0+20160316155526",
     "react-addons-transition-group": "registry:dt/react-addons-transition-group#0.14.0+20160701001352",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "react-dropzone": "registry:dt/react-dropzone#0.0.0+20160316171810",
     "serve-static": "registry:dt/serve-static#0.0.0+20160606155157",
     "source-map": "registry:dt/source-map#0.0.0+20160317120654",
     "uglify-js": "registry:dt/uglify-js#2.6.1+20160316155526",

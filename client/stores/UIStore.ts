@@ -6,27 +6,29 @@ class UIStore {
 		if (data) {
 			this.setData(data)
 		}
-
-		if (window['data']) {
-			let wData = window['data'] as any
-
-			if (wData.sampleStore) {
-				this.setData(wData.uiStore)
-			}
-		}
 	}
 
 	@observable
-	isSideMenuVisible = false
+	isMenuOpen = false
 
 	@action('SET_UI_DATA')
 	setData (data) {
 		objectAssign(this, data)
 	}
 
-	@action('TOGGLE_SIDE_MENU')
-	toggleSideMenu () {
-		this.isSideMenuVisible = !this.isSideMenuVisible
+	@action('TOGGLE_PINNED_SIDEBAR')
+	toggleMenuOpen () {
+		this.isMenuOpen = !this.isMenuOpen
+	}
+
+	@action('CLOSE_MENU')
+	closeMenu () {
+		this.isMenuOpen = false
+	}
+
+	@action('OPEN_MENU')
+	openMenu () {
+		this.isMenuOpen = true
 	}
 }
 

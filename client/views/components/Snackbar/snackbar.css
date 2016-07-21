@@ -1,0 +1,17 @@
+:global .snackbar-enter {
+  transform: translateY(5rem);
+}
+
+:global .snackbar-enter.snackbar-enter-active {
+  transform: translateY(0%);
+  transition: transform 200ms ease-in-out;	
+}
+
+:global .snackbar-leave {
+  transform: translateY(0%);
+}
+
+:global .snackbar-leave.snackbar-leave-active {
+  transform: translateY(5rem);
+	transition: transform 200ms ease-in-out;
+}
