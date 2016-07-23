@@ -5,11 +5,9 @@ import { IStores } from '../stores'
 import LinkContainer from './components/LinkContainer'
 const CSS = require('react-css-modules')
 const theme = require('./root.scss')
-const { AppBar } = require('react-toolbox/lib/app_bar')
-const { Layout } = require('react-toolbox/lib/layout')
-const { Navigation, NavDrawer, Panel } = require('react-toolbox/lib/navigation')
-const { Snackbar } = require('react-toolbox/lib/snackbar')
-const { IconButton } = require('react-toolbox/lib/button')
+const { 
+	AppBar, Layout, Navigation, NavDrawer, Panel, Snackbar, IconButton 
+} = require('react-toolbox')
 
 class Root extends React.Component<{stores: IStores}, any> {
 	render () {

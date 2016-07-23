@@ -14,7 +14,6 @@
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-dropzone/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
-/// <reference path="globals/rebass/index.d.ts" />
 /// <reference path="globals/serve-static/index.d.ts" />
 /// <reference path="globals/source-map/index.d.ts" />
 /// <reference path="globals/uglify-js/index.d.ts" />

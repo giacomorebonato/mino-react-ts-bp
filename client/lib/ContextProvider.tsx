@@ -21,7 +21,7 @@ interface IContextProviderProps {
 	}
 }
 
-export function connect<P> (Component: any): React.ComponentClass<P> {
+export function connect<P> (Component: any): any {
 	if (!Component) {
 		throw new Error('Not valid component passed to connect')
 	}
